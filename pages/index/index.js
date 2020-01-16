@@ -7,13 +7,30 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+	name:'双向绑定',
+	counter:0,
+	student:[{id:0,name:'0'},{id:1,name:'1'},{id:2,name:'2'},{id:3,name:'3'}]
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+  add: function() {
+	  // 1.界面不会变化
+	  // this.data.counter ++;
+	  // console.log(this.data.counter);
+	  // 2.this.setData()
+	  this.setData({
+		counter: this.data.counter + 1
+	  })
+  },
+  down: function() {
+	this.setData({
+		counter: this.data.counter -1
+	})  
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
