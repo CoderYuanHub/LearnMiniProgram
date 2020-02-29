@@ -1,0 +1,41 @@
+<!--pages/wxml/wxml.wxml-->
+<view>{{firstName}}</view>
+<view>{{lastName}}</view>
+<view>现在时间是:{{time}}</view>
+
+<button size="min" bindtap="handelColor">更改</button>
+<view class="{{ isActive ? 'active': ''}}">颜色</view>
+
+<!-- wx:if的使用 -->
+<button size="mini" bindtap="handelShow">切换显示</button>
+<view wx:if="{{isShow}}">显示内容</view>
+
+<!-- wx:if/wx:else 的使用 -->
+<view wx:if="{{score > 90}}">优秀</view>
+<view wx:elif="{{score >= 60}}">及格</view>
+<view wx:else>不合格</view>
+
+<!-- wx:for的使用 -->
+<!-- 遍历数组/字符串/数字 -->
+<view wx:for="{{['11','22','33']}}" wx:key="index">{{item}}    {{index}}</view>
+<view wx:for="asjdhasd"  wx:key="index">{{item}}   {{index}}</view>
+<view wx:for="{{9}}"  wx:key="index">{{item}}   {{index}}</view>
+
+<!-- item/index 起名字 -->
+<view wx:for="{{movies}}" wx:key="i" wx:for-item="movie" wx:for-index="i">{{movie}}   {{i}}</view>
+
+<!-- template的使用 -->
+<!-- <template name="test">
+<button>{{content1}}</button>
+<view>{{content2}}</view>
+</template> -->
+<!-- 导入方式 -->
+<import src="../template/template.wxml" />
+
+<!-- template传值 -->
+<template is="test" data="{{content1:'按钮', content2:'测试'}}"></template>
+
+
+<!-- wxs的使用 -->
+<wxs src="../../wxs/wxs.wxs" module="format"/>
+<view>{{format.test()}}</view>
