@@ -1,0 +1,4 @@
+<template name="test">
+<button>{{content1}}</button>
+<view>{{content2}}</view>
+</template>
