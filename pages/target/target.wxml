@@ -1,0 +1,9 @@
+<!--pages/target/target.wxml-->
+<view class="content">
+  <block wx:for="{{title}}" wx:key="index">
+    <view class="item" 
+          data-item="{{item}}" 
+          data-index="{{index}}"
+          bindtap="handle">{{item}}</view>
+  </block>
+</view>
